@@ -19,16 +19,18 @@ class _WeatherInfoBodyState extends State<WeatherInfoBody> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              weatherModel.cityName,
-              style: const TextStyle(
+            const Text(
+              // weatherModel.cityName,
+              'Alex',
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),
             ),
-            Text(
-              'updated at ${weatherModel.date} ',
-              style: const TextStyle(
+            const Text(
+              // 'updated at ${weatherModel.date} ',
+              'updated at 20',
+              style: TextStyle(
                 fontSize: 24,
               ),
             ),
@@ -41,24 +43,24 @@ class _WeatherInfoBodyState extends State<WeatherInfoBody> {
                 Image.asset(
                   'assets/images/cloudy.png',
                 ),
-                Text(
-                  weatherModel.temp,
-                  style: const TextStyle(
+                const Text(
+                  '27',
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 32,
                   ),
                 ),
-                Column(
+                const Column(
                   children: [
                     Text(
-                      'Maxtemp: ${weatherModel.maxTemp}',
-                      style: const TextStyle(
+                      'Maxtemp: 24',
+                      style: TextStyle(
                         fontSize: 16,
                       ),
                     ),
                     Text(
-                      'Mintemp: ${weatherModel.minTemp}',
-                      style: const TextStyle(
+                      'Mintemp: 20',
+                      style: TextStyle(
                         fontSize: 16,
                       ),
                     ),
@@ -69,9 +71,9 @@ class _WeatherInfoBodyState extends State<WeatherInfoBody> {
             const SizedBox(
               height: 32,
             ),
-            Text(
-              weatherModel.status,
-              style: const TextStyle(
+            const Text(
+              'Sunny',
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),

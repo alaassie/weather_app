@@ -13,7 +13,7 @@ class WeatherService {
     Response response = await dio.get('$baseUrl/forecast.json?key=$apiKey&q=$cityName');
 
     var logger = Logger();
-    logger.i(response.statusCode);
+    logger.i('$baseUrl/forecast.json?key=$apiKey&q=$cityName');
 
     WeatherModel weatherModel = WeatherModel.fromJson(response.data);
     return weatherModel;
