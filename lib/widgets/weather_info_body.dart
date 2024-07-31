@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/model/weather_model.dart';
 
-class WeatherInfoBody extends StatefulWidget {
-  const WeatherInfoBody({super.key});
+class WeatherInfoBody extends StatelessWidget {
+  const WeatherInfoBody({super.key, required this.weatherModel});
 
-  @override
-  State<WeatherInfoBody> createState() => _WeatherInfoBodyState();
-}
-
-class _WeatherInfoBodyState extends State<WeatherInfoBody> {
-  late WeatherModel weatherModel;
+  final WeatherModel weatherModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +14,18 @@ class _WeatherInfoBodyState extends State<WeatherInfoBody> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               // weatherModel.cityName,
-              'Alex',
-              style: TextStyle(
+              weatherModel.cityName,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),
             ),
-            const Text(
+            Text(
               // 'updated at ${weatherModel.date} ',
-              'updated at 20',
-              style: TextStyle(
+              'updated at ${weatherModel.date}',
+              style: const TextStyle(
                 fontSize: 24,
               ),
             ),
@@ -40,27 +35,25 @@ class _WeatherInfoBodyState extends State<WeatherInfoBody> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(
-                  'assets/images/cloudy.png',
-                ),
-                const Text(
-                  '27',
-                  style: TextStyle(
+                Image.network('https:${weatherModel.image}'),
+                Text(
+                  '${weatherModel.temp}',
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 32,
                   ),
                 ),
-                const Column(
+                Column(
                   children: [
                     Text(
-                      'Maxtemp: 24',
-                      style: TextStyle(
+                      'Maxtemp: ${weatherModel.maxTemp}',
+                      style: const TextStyle(
                         fontSize: 16,
                       ),
                     ),
                     Text(
-                      'Mintemp: 20',
-                      style: TextStyle(
+                      'Mintemp: ${weatherModel.minTemp}',
+                      style: const TextStyle(
                         fontSize: 16,
                       ),
                     ),
@@ -71,9 +64,9 @@ class _WeatherInfoBodyState extends State<WeatherInfoBody> {
             const SizedBox(
               height: 32,
             ),
-            const Text(
-              'Sunny',
-              style: TextStyle(
+            Text(
+              weatherModel.weatherCondition,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),
